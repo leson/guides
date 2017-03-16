@@ -12,3 +12,9 @@ mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-webapp \
 mvn clean package
 ```
 > Now you are ready to take the packaged WAR (located under ./target/simple-service-webapp.war) and deploy it to a Servlet container of your choice.
+
+
+
+
+# invoke 
+> [maven eclipse project jersey](http://www.cnblogs.com/winfred/p/5597154.html)
