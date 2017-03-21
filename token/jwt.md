@@ -21,14 +21,18 @@ token example:
 
 [useful url](https://1024tools.com/hmac)
 ## token practice    
-Client      ---------------     Server
-(App/Browser)                   (Java/Ruby/python ...)   
+Client---------------Server
 
-store token ---------------     Generate Token 
+(App/Browser)---------------(Java/Ruby/python ...)   
 
-transfer token  1.Http header {Ajax[headers:Authorization]} 
-                2.URL  parameter
-                3.Http post form
+store token---------------Generate Token 
 
-verify token                
+### transfer token  
+1. Http header {Ajax[headers:Authorization]}
+2. URL  parameter
+3. Http post form
+
+### verify token    
+
+
 
