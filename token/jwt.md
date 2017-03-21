@@ -4,15 +4,11 @@
 
 A.B.C
 
-## token contain 
-> A. header 
-==Base64(`{"typ":"JWT","alg":"HS512"}`)  
+> A. header ==Base64(`{"typ":"JWT","alg":"HS512"}`)  
 
-> B. payload
-==Base64(`{"sub":"9876655444321","exp":"47464344"}`) 
+> B. payload ==Base64(`{"sub":"9876655444321","exp":"47464344"}`) 
 
-> C. signature   
-== fooAlg('A.B',secret)  
+> C. signature ==fooAlg('A.B',secret key)  
 secret key:"setup your private key"
 `utyJhnzUhcqnTdswjgaK7QMa9qTaU9WXyY2BHsU9tFFz5MBz1kbj5vro39uXBluLgf8oEEBN2lXk/5moP4z3XQ==`
 
