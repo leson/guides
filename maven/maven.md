@@ -4,3 +4,17 @@
 ```bash
 mvn archetype:generate
 ```
+
+## common command
+```bash
+mvn dependency:tree
+
+mvn eclpse:eclipse
+
+mvn clean package
+
+mvn build
+
+mvn deploy
+
+```
