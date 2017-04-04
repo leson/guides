@@ -31,6 +31,6 @@ collect some interesting codes and guideline
 - [jenkins](https://github.com/leson/guides/blob/master/jenkins)
     - [jenkins.md](https://github.com/leson/guides/blob/master/jenkins/jenkins.md)
 
-- [spring boot](https://github.com/leson/guides/blob/master/spring boot)
-    - [quick start.md](https://github.com/leson/guides/blob/master/spring boot/quick start.md)
+- [spring boot](https://github.com/leson/guides/blob/master/spring_boot)
+    - [quick start.md](https://github.com/leson/guides/blob/master/spring_boot/quick_start.md)
 
