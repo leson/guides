@@ -25,4 +25,12 @@ collect some interesting codes and guideline
 - [token](https://github.com/leson/guides/blob/master/token)
     - [jwt.md](https://github.com/leson/guides/blob/master/token/jwt.md)
 
+- [sublime](https://github.com/leson/guides/blob/master/sublime)
+    - [sublime.md](https://github.com/leson/guides/blob/master/sublime/sublime.md)
+
+- [jenkins](https://github.com/leson/guides/blob/master/jenkins)
+    - [jenkins.md](https://github.com/leson/guides/blob/master/jenkins/jenkins.md)
+
+- [spring boot](https://github.com/leson/guides/blob/master/spring boot)
+    - [quick start.md](https://github.com/leson/guides/blob/master/spring boot/quick start.md)
 
