@@ -204,6 +204,7 @@ cat test_for_run.tar  | sudo docker import - test/ubuntu:v1.0
 [国内仓库](http://dockerpool.com)
 
 [阿里云仓库](https://dev.aliyun.com)
+#### image speed up refer dev.aliyun.com
 
 
 ## [常见问题](http://note.youdao.com/noteshare?id=29d61d599e7f056ca5ec6b4f0738fda3)
