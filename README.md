@@ -1,6 +1,6 @@
 # testNG eclipse plugin offline install 
-[Official github](https://github.com/cbeust/testng)
-[Eclipse plugin](https://github.com/cbeust/testng-eclipse)
+- [Official github](https://github.com/cbeust/testng)
+- [Eclipse plugin](https://github.com/cbeust/testng-eclipse)
 
 
 # install testNG eclipse plugin manually
