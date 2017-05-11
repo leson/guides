@@ -275,7 +275,7 @@ source test.sh
 ls oklar && echo yes || echo no
 ```
 
-## [shell 调试(debug)](http://note.youdao.com/noteshare?id=3a26f3d2ce9cdd864d1b238ceecdaba3)
+## [shell 调试(debug)](https://github.com/leson/guides/blob/master/linux/shell_debug.md)
 ```
 sh -x aaa.sh
 
