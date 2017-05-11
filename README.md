@@ -18,6 +18,7 @@ collect some interesting codes and guideline
 - [linux](https://github.com/leson/guides/blob/master/linux)
     - [linux.md](https://github.com/leson/guides/blob/master/linux/linux.md)
     - [shell.md](https://github.com/leson/guides/blob/master/linux/shell.md)
+    - [shell debug.md](https://github.com/leson/guides/blob/master/linux/shell_debug.md)
 
 - [jersey](https://github.com/leson/guides/blob/master/jersey)
     - [jersey.md](https://github.com/leson/guides/blob/master/jersey/jersey_guidline.md)
