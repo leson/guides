@@ -6,6 +6,7 @@ collect some interesting codes and guideline
     - [markdown.md](https://github.com/leson/guides/blob/master/markdown/markdown.md)
 
 - [docker](https://github.com/leson/guides/blob/master/docker)
+    - [docker introduce](https://github.com/leson/guides/blob/master/docker/docker_quick_start.md)
     - [docker.md](https://github.com/leson/guides/blob/master/docker/docker.md)
     - [mysql.md](https://github.com/leson/guides/blob/master/docker/mysql.md)
 
@@ -28,6 +29,7 @@ collect some interesting codes and guideline
 
 - [sublime](https://github.com/leson/guides/blob/master/sublime)
     - [sublime.md](https://github.com/leson/guides/blob/master/sublime/sublime.md)
+    - [sublime plugins](https://github.com/leson/guides/blob/master/sublime/sublime_plugins.md)
 
 - [jenkins](https://github.com/leson/guides/blob/master/jenkins)
     - [jenkins.md](https://github.com/leson/guides/blob/master/jenkins/jenkins.md)
