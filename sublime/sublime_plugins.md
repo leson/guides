@@ -1,19 +1,20 @@
 # collect some sublime plugins
 > [official website](https://github.com/SublimeText)
 ## plugins list
+- [mdpopus]()  `???`
+- [Pygments]()    `???`
+- [python-jinja2]()  `???`
+- [python-markdown]()    `???`
 - [emmet](https://github.com/sergeche/emmet-sublime)
 - [ConvertToUTF8](https://github.com/seanliang/ConvertToUTF8)
 - [CTags](https://github.com/SublimeText/CTags)
 - [ElixirSubLime](https://github.com/vishnevskiy/ElixirSublime)
 - [markupsafe](https://github.com/pallets/markupsafe)
-- [mdpopus]()  `???`
 - [Mote](https://github.com/SublimeText/Mote)
 - [OmniMarkupPreviewer](https://github.com/timonwong/OmniMarkupPreviewer)     `recommend`
 - [Pretty JSON](https://github.com/dzhibas/SublimePrettyJson)
-- [Pygments]()    `???`
-- [python-jinja2]()  `???`
-- [python-markdown]()    `???`
 - [SideBarFolders](https://github.com/titoBouzout/SideBarFolders)
+- [SideBarEnhancements](https://github.com/SideBarEnhancements-org/SideBarEnhancements)
 - [SublimeCodeIntel](https://github.com/SublimeCodeIntel/SublimeCodeIntel)
 - [Sublime-HTMLPrettify](https://github.com/victorporof/Sublime-HTMLPrettify)
 - [sublime-text-git](https://github.com/kemayo/sublime-text-git)
