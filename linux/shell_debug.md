@@ -1,4 +1,4 @@
-# shell 调试选项
+## 1. use shell 调试选项
 
 ### 查看shell 脚本 manual
 
@@ -52,3 +52,8 @@ function foo(){
 foo()
 
 ``` 
+
+
+## bashdb tools
+
+## 
