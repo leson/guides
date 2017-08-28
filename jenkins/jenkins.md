@@ -12,5 +12,8 @@ access link [localhost:8888/blue](http://localhost:8888/blue)
 - No such plugin: cloudbees-folder
 access:[localhost:8888/restart](localhost:8888/restart)
 
+- forget the admin's password 
+`cat ~/.jenkins/secrets/initialAdminPassword`
+
 ## plugins install
 
