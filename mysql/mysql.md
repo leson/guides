@@ -9,3 +9,8 @@
 if bind the 127.0.0.1 other host can't connect your local mysql server
 
 please comments the `bind-address = 127.0.0.1`
+
+# Command line connect remote mysql server
+```bash
+mysql -uroot -p -h 103.102.203.90 -P3306
+```
