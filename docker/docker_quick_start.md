@@ -61,8 +61,10 @@ sudo docker pull registry.hub.docker.com/ubuntu:14.04
 #### 2. 查看镜像
 
 ```bash
-sudo docker images
+sudo docker images  # view image list
+sudo docker inspect <image name|ID> # view the image details infomation.
 ```
+
 #### 3. 搜索镜像
 
 ```bash
@@ -86,9 +88,7 @@ sudo docker ps -a   #查看运行过的容器
 
 ```bash
 sudo docker run -ti ubuntu:14.04  /bin/bash
-```
 
-```bash
 root@a92540b3f0:/# touch test
 root@a92540b3f0:/# exit
 ```
@@ -129,14 +129,13 @@ sudo docker push user/test:latest
 
 
 ### 容器 
-> 容器是镜像的一个运行实例，所以它带有可写文件层。
+> 容器是镜像的一个实例，所以它带有可写文件层。
 
 #### 1. 新建并启动容器
 
 ```bash
 sudo docker run -ti ubuntu:14.04 /bin/bash
-```
-```bash
+
 root@af983df88d:/#
 ```
 
@@ -145,12 +144,9 @@ root@af983df88d:/#
 ```bash
 sudo docker ps -a   #查看所有启动过的容器
 
-```
-```bash
 sudo docker ps   #查看当前运行中的容器
 sudo docker ps -a |grep Up
-```
-```bash
+
 sudo docker ps -l #查看最近一次运行中的容器
 ```
 
@@ -160,13 +156,11 @@ sudo docker ps -l #查看最近一次运行中的容器
 sudo docker rm  <container id>
 ```
 
-#### 4. 守护态运行容器
+#### 4. 守护态`运行`容器
 
 ```bash
 sudo docker run -d ubuntu  /bin/sh -c "while true;do echo hello world;sleep 1;done"
-```
 
-```bash
 sudo docker logs <container id>  #查看容器的输出信息
 ```
 #### 5. 终止容器
@@ -190,9 +184,7 @@ sudo docker exec -ti <container id>  /bin/bash
 
 ```bash
 sudo docker export <container id>  > test_for_run.tar
-```
 
-```bash
 cat test_for_run.tar  | sudo docker import - test/ubuntu:v1.0
 ```
 
