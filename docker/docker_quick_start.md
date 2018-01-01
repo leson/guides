@@ -17,6 +17,8 @@
 
 [菜鸟安装教程](http://www.runoob.com/docker/ubuntu-docker-install.html)
 
+[deepin docker-ce install](http://blog.csdn.net/tjq980303/article/details/73196534?locationNum=6&fps=1)
+
 ```bash
 sudo gpasswd -a ${USER} docker #将当前用户加入docker组
 
