@@ -148,6 +148,8 @@ sudo docker ps   #查看当前运行中的容器
 sudo docker ps -a |grep Up
 
 sudo docker ps -l #查看最近一次运行中的容器
+
+sudo docker inspect <container name|ID> # view the detail infomation of container.
 ```
 
 #### 3. 删除容器
