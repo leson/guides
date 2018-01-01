@@ -22,6 +22,11 @@ sudo gpasswd -a ${USER} docker #将当前用户加入docker组
 
 sudo service docker restart #重启docker daemon
 ```
+```bash
+whereis docker
+
+apt-get remove docker.io
+```
 
 ##### docker 命令帮助查看方式
      

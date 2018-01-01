@@ -15,3 +15,12 @@ docker ps -a |grep "Exited" |awk '{print $1}' |xargs -i docker rm {}
 docker volume list  # list the all volumes
 docker volume prune
 ``` 
+
+# docker uninstall
+```bash
+whereis docker
+
+apt-get remove docker.io
+```
+
+[uninstall docker-ce](https://docs.docker.com/engine/installation/linux/docker-ce/debian/#uninstall-docker-ce)
