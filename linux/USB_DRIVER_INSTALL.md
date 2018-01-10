@@ -1,7 +1,6 @@
 ## install the USB driver manually
 
-### download the archive package from [baidu pan](https://pan.baidu.com/s/1pLcZsnD
-)
+### download the archive package from [baidu pan](https://pan.baidu.com/s/1pLcZsnD)
 
 ### decompress archive package 
 ```bash
