@@ -28,3 +28,9 @@ scp pi@192.168.1.5:/home/leson/hello.txt /home/vicky/aa.txt`
 ```bash
 scp -rv /home/leson/testFolder/ pi@192.168.1.5:/home/leson/
 ```
+
+## kill all Process by Process ID
+
+```bash
+ps -ef |grep <your pattern> |awk '{print $2}' |xargs -i sudo kill {}
+```
