@@ -8,8 +8,8 @@ curl -L https://raw.github.com/yyuu/pyenv-installer/master/bin/pyenv-installer |
 ```
 > config pyenv and virtualenv; actually,previous step will provide the config like below paste.
 ```bash
-\# Load pyenv automatically by adding
-\# the following to ~/.bash_profile:
+# Load pyenv automatically by adding
+# the following to ~/.bash_profile:
 
 export PATH="/home/leson/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
