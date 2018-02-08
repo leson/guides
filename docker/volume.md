@@ -9,6 +9,8 @@ docker volume -h  # manual
 ```bash
 docker create --name data_vol -v /data mysql
 ```
+> - `/data` : it is a folder in the container "data_vol"
+> - and we can use `docker inspect data_vol` find out the host folder that relate to this /data folder in the container.
 ## mount volume
 ```bash
 docker create --name web /var/html:/html:ro -v /var/log/nginx:/var/log/nginx nginx
