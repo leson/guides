@@ -15,6 +15,6 @@ mvn clean package
 
 mvn build
 
-mvn deploy
+mvn deploy  # deploy to remote repository
 
 ```

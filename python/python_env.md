@@ -2,6 +2,9 @@
 
 ## pyenv
 
+> pyenv 原理
+pyenv 的美好之处在于，他并没有使用将不同的 PATH植入不同的shell这种高耦合的工作方式，而是简单地在PATH植入不同的shell这种高耦合的工作方式，而是简单地在PATH 的最前面插入了一个垫片路径（shims）：~/.pyenv/shims:/usr/local/bin:/usr/bin:/bin。所有对 Python 可执行文件的查找都会首先被这个 shims 路径截获，从而架空了后面的系统路径。
+
 > install `pyenv`
 ```bash
 curl -L https://raw.github.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
