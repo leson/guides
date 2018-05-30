@@ -55,3 +55,5 @@ pyenv activate env364
 ```bash
 pyenv deactivate
 ```
+
+> then we can to install some package and will don't impact other environment of python.
