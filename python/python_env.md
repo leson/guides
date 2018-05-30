@@ -51,9 +51,10 @@ pyenv virtualenv 3.6.4 env364
 pyenv activate env364
 ```
 
+> then we can to install some package and will don't impact other environment of python.
+
 - switch back the virtual environment
 ```bash
 pyenv deactivate
 ```
 
-> then we can to install some package and will don't impact other environment of python.
