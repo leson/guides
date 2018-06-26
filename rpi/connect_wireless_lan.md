@@ -1,0 +1,72 @@
+# 前言：
+> 新入手树莓派 2 ，无线网卡死活连接不上局域网。痛苦了三天。真的需要恶补一下网络知识了。
+
+### 硬件
+1. Raspberry pi 2 
+2. edup （Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter）
+### OS 
+    Raspbian jessie 4.1
+
+# 一、检测
+1. 无线网卡驱动是否安装，系统是否能识别无线网卡
+    ```bash
+    $>lsusb
+    ```
+2. 模块是否加载
+    ```bash
+    $>lsmod
+    ```
+3. 是否分配IP
+    ```bash
+    ifconfig 
+    iwconfig 
+    iwlist
+    ```
+# 二、解决
+1. 连接上有线 (or monitor)
+
+    为了可以SSH操作pi
+
+2. 更新系统
+    
+    ```bash
+    sudo apt-get update     #更新软件信息数据库
+    sudo apt-get upgrade    #系统升级
+    ```
+
+
+3. 配置网络（网卡驱动正常的情况下）
+
+    1> 查看网络配置
+    ```bash
+    cat /etc/network/interfaces
+    ```    
+
+    change to `auto wlan0` if you wireless adptor named "wlan0"
+
+    2>更改获取ip的方式（从manual 到dhcp）
+    ```bash
+    sudo sed -i "s/manual/dhcp/g"  /etc/network/interfaces
+    ```
+    3>切换到root 账号
+    ```bash
+    sudo su
+    ```
+    4>在root 账号下添加wifi 热点到配置文件，方便使用。
+    ```bash
+    wpa_passphrase    [your-wifi-name]   [your-wifi-password]  >> /etc/wpa_supplicant/wpa_supplicant.conf 
+    ```
+    5>重启网络服务
+    ```bash
+    $>sudo service  networking   restart
+    ```
+    6>如果正常应该有ip分配到无线网卡上了。
+
+
+
+
+
+
+
+[网上有人遇到同样的问题的解决方案](https://my.oschina.net/u/2306127/blog/392442)
+[其他解决方案](http://www.jianshu.com/p/b42e8d3df449#)
