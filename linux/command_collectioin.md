@@ -5,10 +5,9 @@
 `shopt`
 
 ## disk partition level
-2. 
 
-3. `fdisk -l` view the board have device that we have inserted.
+2. `fdisk -l` view the board have device that we have inserted.
 
-4. `cat /proc/partitions`  view partition
+3. `cat /proc/partitions`  view partition
 
-5. `lsusb` `lspci` `lsblk`
+4. `lsusb` `lspci` `lsblk`
