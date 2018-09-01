@@ -24,6 +24,21 @@ pip install ansible
 /etc/ansible            #Software Package Management Tools installation will use this path
 ll -a |grep ansible     # pip install ansible will use this path.
 ```
+```
+find / -name "ansible" 
+
+$> sudo ls -l .pyenv/shims -a |grep ansible
+-rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible
+-rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible-config
+-rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible-connection
+-rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible-console
+-rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible-doc
+-rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible-galaxy
+-rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible-inventory
+-rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible-playbook
+-rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible-pull
+-rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible-vault
+```
 
 
 ## manually of ansible
