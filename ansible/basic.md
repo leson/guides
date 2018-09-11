@@ -13,7 +13,7 @@ source ./hacking/env-setup -q
 
 sudo pip install paramiko PyYAML Jinja2 httplib2 six
 ```
-2. pip
+2. pip \<recommand\>
 ```
 pip install ansible
 ```
@@ -43,7 +43,7 @@ $> sudo ls -l .pyenv/shims -a |grep ansible
 
 ## manually of ansible
 ```
-man ansible
+ansible -h 
 ```
 
 ## basically command of ansible 
@@ -63,18 +63,26 @@ ansible-pull
 
 
 ## Commonly used modules
+`inventory.cfg` contents as below shown:
+> [pi]
+> 192.168.1.109
+
+1. `ping` 
+
+2. `file`
+
+3. `copy`
+
+4. `command`
 ```
-ping 
-
-file
-
-copy
-
-command
-
-service
-
-shell
-
-raw
+ansible pi -m command -a '/bin/echo hello ansible' -i inventory.cfg -u pi
 ```
+5. `service`
+
+6. `shell`
+```
+ansible pi -m shell -a '/bin/echo hello ansible' -i inventory.cfg -u pi
+```
+
+7. `raw`
+
