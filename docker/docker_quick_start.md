@@ -43,7 +43,14 @@ docker run --help | less
 ## docker version 1.12 commands as below shown:
 
 ### 镜像
-#### 1. 获取镜像
+
+#### 1. 搜索镜像
+
+```bash
+sudo docker search centos
+```
+
+#### 2. 获取镜像
    
 > 获取ubuntu镜像（**latest version**）
 
@@ -65,17 +72,11 @@ sudo docker pull registry.hub.docker.com/ubuntu:14.04
 ```
 ==由于墙的问题，最好换国内的源去pull.==
 
-#### 2. 查看镜像
+#### 3. 查看镜像
 
 ```bash
 sudo docker images  # view image list
 sudo docker inspect <image name|ID> # view the image details infomation.
-```
-
-#### 3. 搜索镜像
-
-```bash
-sudo docker search centos
 ```
 
 #### 4. 删除镜像
