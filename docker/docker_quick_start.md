@@ -201,6 +201,14 @@ cat test_for_run.tar  | sudo docker import - test/ubuntu:v1.0
 ### 仓库
 > 是集中存放镜像的地方
 
+#### commonly command
+```bash
+docker login registry.gitlab.com
+
+docker build -t registry.gitlab.com/gitlab-org/omnibus-gitlab
+docker push registry.gitlab.com/gitlab-org/omnibus-gitlab
+```
+
 [官方仓库](http://hub.docker.com)
 
 [国内仓库](http://dockerpool.com)
