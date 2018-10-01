@@ -10,6 +10,8 @@
     - [rpi py3.4 tensorflow](https://github.com/lhelontra/tensorflow-on-arm/releases)
 - ELK(Elastic Logstash Kibana)
 
+- docker all
+
 ## conda
 ### installation
 1. fetch the miniconda or anaconda
@@ -24,3 +26,7 @@ Warn: please input the `yes` while the prompt of command line appear of `yes/no`
 ```
 conda -V
 ```
+
+
+
+### docker to install the tools
