@@ -24,6 +24,8 @@ more mirror config approach please refer to below link:
 apt-get update
 apt-get install -y kubeadm kubectl kubelet
 ```
+more information:
+- [doc for kubeadm install](https://kubernetes.io/docs/setup/independent/install-kubeadm/)
 - validation installation
 ```
 kubeadm help
