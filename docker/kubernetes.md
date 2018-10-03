@@ -1,6 +1,9 @@
 # kubernetes 
 [concepts](https://kubernetes.io/docs/concepts/)
 
+> The name Kubernetes originates from Greek, meaning helmsman or pilot, and is the root of governor and cybernetic. K8s is an abbreviation derived by replacing the 8 letters “ubernete” with “8”.
+
+
 ## mirrors of Aliyun
 [alibaba open source mirror site](https://opsx.alibaba.com/)
 
