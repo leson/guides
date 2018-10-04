@@ -5,4 +5,4 @@
 
 ## CPU Temperature
 - ubuntu File : `/sys/class/thermal/thermal_zone0/temp`
-- Raspberry PI File : 
+- Raspberry PI File : same as ubuntu
