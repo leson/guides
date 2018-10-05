@@ -18,3 +18,6 @@ df -h
 
 lsblk --fs 
 ```
+
+
+[tools on linux to write img to sd card](https://github.com/resin-io/etcher/)
