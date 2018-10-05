@@ -12,7 +12,8 @@
     
 
 ## 安装Docker 
-   
+[Aliyun Install Guide](https://yq.aliyun.com/articles/110806)
+
 [官方安装手册](https://docs.docker.com/engine/installation/)
 
 [菜鸟安装教程](http://www.runoob.com/docker/ubuntu-docker-install.html)
