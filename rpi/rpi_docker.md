@@ -5,7 +5,7 @@
 # docker on raspberry pi
 
 ## [installation approach](https://yeasy.gitbooks.io/docker_practice/content/install/raspberry-pi.html)
-0. official shell script installation approach
+~~0. official shell script installation approach~~ `raspbian` **don't support this approach**
 ```sh
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ```
