@@ -11,7 +11,7 @@ sudo dd bs=4M if=/home/${USER}/Downloads/OpenELEC-RPi2.arm-8.0.4.img of=/dev/mmc
 
 > Note: img file and mmcblk0 depends on yourself device
 
-the method to view as below:
+the approach to view as below:
 
 ```bash
 df -h
