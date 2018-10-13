@@ -66,7 +66,11 @@
 
 
 
-
-
 [网上有人遇到同样的问题的解决方案](https://my.oschina.net/u/2306127/blog/392442)
 [其他解决方案](http://www.jianshu.com/p/b42e8d3df449#)
+
+# network relevant
+### scan raspberry pi in the lan.
+1. `nmap -sn 192.168.1.1/24` or `nmap -sP 192.168.1.1/24`
+2. `arp -a`
+3. via the router view.
