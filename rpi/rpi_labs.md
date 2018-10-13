@@ -1,5 +1,6 @@
 # Experimental equipment
 0. GPIO
+
 ![physical pin](http://www.ruanyifeng.com/blogimg/asset/2017/bg2017061518.png)
 
 ![rpi 2](http://shumeipai.nxez.com/wp-content/uploads/2015/03/rpi-pins-40-0.png)
@@ -8,10 +9,11 @@
    > - BCM 编码
    > - wiringPi 编码
 1. 面包板
+
 ![mian bao ban](https://imgsa.baidu.com/exp/w=480/sign=9ee85cdc11d8bc3ec60807c2b28aa6c8/d31b0ef41bd5ad6e2fad8d0c89cb39dbb7fd3c84.jpg)
 2. 三极管
     - s8550
-    
+
     ![s8550 to-92](https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=f0c10d01c711728b24208470a995a8ab/aa18972bd40735fac70ccc2994510fb30e2408a5.jpg)
     - s8050
 
