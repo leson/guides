@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # --*-- coding: utf-8 --*--
 
-print """
+from sys import version_info
+
+buddha="""
 \033[33;1m
 
   
@@ -30,3 +32,8 @@ print """
                            佛祖保佑    永不宕机
 \033[0m
 """
+
+if version_info.major < 3:
+  print(buddha)
+else:
+  print(buddha)
