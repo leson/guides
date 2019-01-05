@@ -14,7 +14,7 @@
 ## 安装Docker 
 [Aliyun Install Guide](https://yq.aliyun.com/articles/110806)
 
-[官方安装手册](https://docs.docker.com/engine/installation/)
+[官方安装手册](https://docs.docker.com/engine/installation/) [* Recommend *]
 
 [菜鸟安装教程](http://www.runoob.com/docker/ubuntu-docker-install.html)
 
@@ -134,7 +134,7 @@ sudo docker load < ubuntu_14.04.tar
 sudo docker tag test:latest  user/test:latest
 sudo docker push user/test:latest
 ```
-==注意：默认上传到DockerHub 官方仓库。==
+==注意：默认上传到https://hub.docker.com官方仓库。==
 
 
 ### 容器 
@@ -210,12 +210,12 @@ docker build -t registry.gitlab.com/gitlab-org/omnibus-gitlab
 docker push registry.gitlab.com/gitlab-org/omnibus-gitlab
 ```
 
-[官方仓库](http://hub.docker.com)
+[官方仓库](https://hub.docker.com)
 
-[国内仓库](http://dockerpool.com)
+[国内仓库](https://www.docker-cn.com)
 
 [阿里云仓库](https://dev.aliyun.com)
-#### image speed up refer dev.aliyun.com
-
 
 ## [常见问题](http://note.youdao.com/noteshare?id=29d61d599e7f056ca5ec6b4f0738fda3)
+#### image speed up refer to dev.aliyun.com
+`/etc/docker/daemon.json`
