@@ -1,5 +1,5 @@
 
-# installation on centos
+# [installation on centos](https://trac.ffmpeg.org/wiki/CompilationGuide/Centos)
 ```bash
 wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 tar -zxvf yasm-1.3.0.tar.gz
