@@ -74,3 +74,26 @@
 1. `nmap -sn 192.168.1.1/24` or `nmap -sP 192.168.1.1/24`
 2. `arp -a`
 3. via the router view.
+
+### WiFi password change 
+
+1. check the file `/etc/network/interfaces`
+```
+...
+
+auto wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+...
+
+```
+2. amend file `/etc/wpa_supplicant/wpa_supplicant.conf`
+```bash
+network={
+        ssid="wifi-name"
+        psk="wifi password"
+}
+```
+
+3. `reboot` or `sudo /etc/init.d/networking restart`
