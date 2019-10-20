@@ -7,11 +7,32 @@
 1. [minikube](https://github.com/kubernetes/minikube/releases) and [kubectl](https://github.com/kubernetes/kubectl/releases)
 2. [docker-machine](https://docs.docker.com/machine/) 
 3. [kvm and Qemu and Libvirt](https://computingforgeeks.com/install-kvm-centos-rhel-ubuntu-debian-sles-arch/)
-4. docker-machine-driver-kvm2
+4. [docker-machine-driver-kvm2](https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-kvm2)
 
 
 
 ### test minikube 
 ```bash
 minikube start --vm-driver kvm2
+
+sudo virsh list
+
+kubectl cluster-info
+
+kubectl config view
+
+kubectl get nodes
+
+minikube ssh
+
+minikube stop
+
+minikube addons list
+
+minikube dashboard --url
+
+minikube dashboard
+
+
+# minikube delete
 ```
