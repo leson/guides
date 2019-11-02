@@ -1,4 +1,4 @@
-# Minikube 
+# kubernetes Manage by Minikube 
 
 ## [minikube + kvm](https://computingforgeeks.com/how-to-run-minikube-on-kvm/) 
 > Minikube run kubernetes clusters on kvm 
@@ -11,17 +11,10 @@
 
 
 
-### test minikube 
+### `minikube` 
 ```bash
+# start clusters on VM by minikube
 minikube start --vm-driver kvm2
-
-sudo virsh list
-
-kubectl cluster-info
-
-kubectl config view
-
-kubectl get nodes
 
 minikube ssh
 
@@ -33,6 +26,58 @@ minikube dashboard --url
 
 minikube dashboard
 
+minikube service hello-minikube --url
 
 # minikube delete
+```
+
+> `virsh`
+```bash
+sudo virsh list
+```
+
+> `kubectl`
+```bash
+kubectl cluster-info
+
+kubectl config view
+
+kubectl get nodes
+
+kubectl get events
+
+kubectl get services
+
+kubectl describe services <Service-name>
+
+```
+
+Reference Link:
+1. [learning minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/)
+
+# Issue Report
+## 1. `ErrImagePull` or `imagepullbackoff`
+`kubectl get pods` status was `ErrImagePull` or 
+Track:
+```bash
+kubectl cluster-info
+kubectl get pods
+kubectl describe pod hello-node
+minikube docker-env
+```
+
+solution: setup proxy while start the kubernets clusters
+> minikube start --docker-env HTTP_PROXY=<my proxy> --docker-env HTTPS_PROXY=<my proxy> --docker-env NO_PROXY=192.168.99.0/24
+```bash
+minikube start --vm-driver kvm2 --docker-env HTTP_PROXY=http://192.168.1.6:10809
+```
+- http://192.168.1.6:10809  : 翻墙代理IP:port
+
+refer to : [minikube start guide](https://k8smeetup.github.io/docs/getting-started-guides/minikube/)
+
+## 2. `kubectl get pods` No resources found.
+> trace
+```bash
+kubectl get namespaces
+kubectl get pods --all-namespaces
 ```
