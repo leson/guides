@@ -12,6 +12,9 @@
 
 
 ### `minikube` 
+> [installation of minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+
+
 ```bash
 # start clusters on VM by minikube
 minikube start --vm-driver kvm2
