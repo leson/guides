@@ -72,7 +72,12 @@ minikube docker-env
 solution: setup proxy while start the kubernets clusters
 > minikube start --docker-env HTTP_PROXY=<my proxy> --docker-env HTTPS_PROXY=<my proxy> --docker-env NO_PROXY=192.168.99.0/24
 ```bash
+#append proxy in order we can pull images.
 minikube start --vm-driver kvm2 --docker-env HTTP_PROXY=http://192.168.1.6:10809
+
+# or From china,we can append the image repository as below
+minikube start --vm-driver kvm2 --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers \
+--image-mirror-country=cn
 ```
 - http://192.168.1.6:10809  : 翻墙代理IP:port
 
