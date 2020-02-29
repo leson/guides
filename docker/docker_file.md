@@ -40,10 +40,33 @@ WORKDIR     #切换目录用，可以多次切换(相当于cd命令)，对RUN,CM
 
 ONBUILD     #ONBUILD 指定的命令在构建镜像时并不执行，而是在它的子镜像中执行
 
-
 ```
 
-### 实例
+### 实例 01
+```
+cat > Dockerfile<<EOF
+FROM    ubuntu:16.04
+MAINTAINER  leson<i.leson@163.com>
+RUN apt-get update -y
+LABEL   app="demo"
+EXPOSE  8080/tcp
+ENV app demo
+ADD src dest (ADD 是COPY的超集,支持压缩和远程路径)
+COPY    src dest (推荐)
+ENTRYPOINT  ["executable","param1"](ENTRYPOINT是/bin/sh -c来执行的,不是PID1的进程,无法收到SIGTERM)
+CMD ["executable","param1"](CMD会自动添加到ENTRYPOINT后面,CMD不会被Dockerfile继承)
+SHELL   ["executable","parameters"](linux:["bin/sh","-c"];Windows:["cmd","/S","/C"])
+VOLUME  /myvol
+USER    root
+WORKDIR /myvol
+ONBUILD RUN /usr/local/bin/python-build --dir /app/src
+STOPSIGNAL  SIGKILL
+HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost/ || exit 1
+
+EOF
+```
+
+### 实例 02
 
 ```
 $ cat Dockerfile
