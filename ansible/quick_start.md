@@ -41,7 +41,7 @@
    ansible -i hosts remote-host -m ping
    ```
 
-   > 192.168.1.109 | SUCCESS => {
+   > 192.168.1.119 | SUCCESS => {
    >     "ansible_facts": {
    >         "discovered_interpreter_python": "/usr/bin/python"
    >     }, 
@@ -74,5 +74,31 @@
 
 - check if the file `ansible.test` file generated or not on destination host
 
+- more easy approach `script` module 
+
+  ```shell
+  ansible -i hosts local-pi -m script -a 'init.sh'
+  ```
+
+  
+
 # playbook
+
+1. playbook `playbook.yml`
+
+   ```shell
+   - hosts: local-pi
+     name: play testing
+     tasks:
+     - name: check host connection
+       ping:
+   ```
+
+2. invoke playbook file
+
+   ```shell
+   ansible-playbook -i hosts playbook.yml 
+   ```
+
+   
 

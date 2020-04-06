@@ -48,18 +48,22 @@ ansible -h
 
 ## basically command of ansible 
 
-```
-ansible
+1. `ansible` 
 
-ansible-doc
+2. `ansible-doc` using for view the module usage
+    ```shell
+    ansible-doc -s authorized_key
+    ```
 
-ansible-galaxy      # similar with pip/yum/npm modules management components
+3. ansible-galaxy      # similar with pip/yum/npm modules management components
+    > ​a free site for finding, downloading, and sharing community developed roles.
+    ```shell
+    
+    ```
+4. ansible-playbook
 
-ansible-playbook
+5. ansible-pull
 
-ansible-pull
-
-```
 
 
 ## Commonly used modules
