@@ -64,8 +64,10 @@ ansible-pull
 
 ## Commonly used modules
 `inventory.cfg` contents as below shown:
-> [pi]
-> 192.168.1.109
+```yaml 
+[pi]
+192.168.1.109
+```
 
 1. `ping` 
 
