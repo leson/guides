@@ -38,7 +38,7 @@
 3. testing the host avaiable or not 
 
    ```shell
-   ansible -i hosts remote-host -m ping
+   ansible -i hosts local-pi -m ping
    ```
 
    > 192.168.1.119 | SUCCESS => {

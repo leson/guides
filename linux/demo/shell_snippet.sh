@@ -1,11 +1,14 @@
 #!/bin/bash
 ####################################################################
 #-- 
-#-- Shell Code Snippet for demonstate the shell usage
-#-- 4 Apri 2020
+#-- Desc    : Shell Code Snippet for demonstate the shell usage
+#-- Author  : Leson (https://github.com/leson)
+#-- Date    : 4 Apri 2020
 #-------------------------------------------------------------------
-#-- Ver     --Author        --Comment
-#-- 1.0     Leson Yin       Initial Creation for shell snippet
+#-- Ver.      Author          Comment
+#-- -----     ------------    -------------------------------
+#-- 1.0       Leson           initial create
+#--
 ####################################################################
 # set -x
 start=$(date +"%s")
@@ -28,6 +31,7 @@ function checkSyntax(){
     threshold=1
     if [[ $# -lt ${threshold} ]];then
         echo -e "==> Syntax Error: Arguments Count [$#] less than expection [${threshold}]."
+        echo -e "==> Example: ${SH_NAME} key1=val1 key2=val2"
         exit 99
     fi
 
