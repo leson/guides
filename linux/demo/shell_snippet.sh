@@ -34,6 +34,10 @@ function checkSyntax(){
         echo -e "==> Syntax Error: Arguments Count [$#] less than expection [${threshold}]."
         echo -e "==> Example: ${SH_NAME} key1=val1 key2=val2"
         exit 99
+    elif [[ $# -gt ${threshold} ]];then
+        echo -e "==> $# > ${threshold}"
+    else
+        echo -e "==> $# == ${threshold}"
     fi
 
 }
