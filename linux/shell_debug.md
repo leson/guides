@@ -21,11 +21,11 @@
 
 打开整个脚本调试
 ```bash
-$ shell 选项   参数1 ... 参数N
+$ shell 选项  command  参数1 ... 参数N
 ```
 示例：
 ```bash
-$/bin/bash 选项   参数1 ... 参数N
+bash -x my.sh 参数1 ... 参数N
 ```
 ### 3. 使用shell内置命令`set`
 
