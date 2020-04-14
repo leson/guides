@@ -60,7 +60,7 @@
   touch ansible.test
   ```
 
-- copy above shell script o destination host
+- copy above shell script to destination host
 
   ```shell
   ansible -i hosts remote-host -m copy -a 'src=./init.sh dest=/root/init.sh'
