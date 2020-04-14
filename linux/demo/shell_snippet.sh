@@ -11,9 +11,10 @@
 #--
 ####################################################################
 # set -x
+set -o nounset -o errexit -o pipefail
 start=$(date +"%s")
 SH_NAME=$(basename $0)
-CURR_PATH=$(readlink -f ${SH_NAME})
+CURR_PATH=$(dirname $(readlink -f ${SH_NAME}))
 
 ## Arguments Defined and setup default value
 A=""

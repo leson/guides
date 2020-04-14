@@ -1,11 +1,17 @@
 #!/bin/bash
-#-------------------------------
-#--    
-#--    multi-process  bind fifo file
-#--    http://my.oschina.net/sanpeterguo/blog/133304?fromerr=hPYR9UTR    
-#--    fixed by leson 
-#--    管道文件是进程之间通信的一种方式
-#--------------------------------
+####################################################################
+#-- 
+#-- Desc    : multi-process  bind fifo file
+#--           管道文件是进程之间通信的一种方式
+#-- Author  : Leson (https://github.com/leson)
+#-- Date    : 4 Apri 2020
+#-- Refer   : http://my.oschina.net/sanpeterguo/blog/133304?fromerr=hPYR9UTR
+#-------------------------------------------------------------------
+#-- Ver.      Author          Comment
+#-- -----     ------------    -------------------------------
+#-- 1.0       Leson           initial create
+#--
+####################################################################
 
 #sub process do something
 function a_sub_process { 
