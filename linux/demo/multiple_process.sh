@@ -17,13 +17,13 @@ start=$(date +"%s")
 for (( i = 0; i < 10; i++ ))
 do
      {
-     echo "success：[${i}]" ;
-     sleep 2
+          echo "success：[${i}]"
+          sleep 2
      }& #将{} 中的程序放入后台进程。
 done
 
 #等待上面后台循环进程执行完成。
 wait
-end=$( date +"%s")
 
+end=$( date +"%s")
 echo "spend:[$((${end}-${start}))] Seconds."
