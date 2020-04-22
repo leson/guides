@@ -28,7 +28,7 @@
     为了可以SSH操作pi
 
 2. 更新系统
-    
+   
     ```bash
     sudo apt-get update     #更新软件信息数据库
     sudo apt-get upgrade    #系统升级
@@ -37,14 +37,29 @@
 
 3. 配置网络（网卡驱动正常的情况下）
 
-    1> 查看网络配置
+    1> 查看网络配置 `cat /etc/network/interfaces`
     ```bash
-    cat /etc/network/interfaces
-    ```    
+    # Include files from /etc/network/interfaces.d:
+    source-directory /etc/network/interfaces.d
+    auto lo
+    iface lo inet loopback
+    auto eth0
+    iface eth0 inet dhcp
+    
+    auto wlan0
+    allow-hotplug wlan0
+    iface wlan0 inet static
+    address 192.168.1.66
+    netmask 255.255.255.0
+    gateway 192.168.1.1
+    network 192.168.1.1
+    
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+    ```
 
     change to `auto wlan0` if you wireless adptor named "wlan0"
 
-    2>更改获取ip的方式（从manual 到dhcp）
+    2>更改获取ip的方式（从manual 到dhcp）[Optional Step]
     ```bash
     sudo sed -i "s/manual/dhcp/g"  /etc/network/interfaces
     ```
@@ -61,6 +76,8 @@
     $>sudo service  networking   restart
     ```
     6>如果正常应该有ip分配到无线网卡上了。
+
+    7>如果还是不行，请考虑　`raspi-config`  gui 方式配置network
 
 
 
