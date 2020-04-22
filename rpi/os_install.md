@@ -55,12 +55,13 @@
 ```bash
 # for example to install raspbian buster lite as below
 
-sudo dd bs=4M if=/home/${USER}/Downloads/2020-02-13-raspbian-buster-lite.img of=/dev/sdc1 && sync
+sudo dd bs=4M if=/home/${USER}/Downloads/2020-02-13-raspbian-buster-lite.img of=/dev/sdc && sync
 
-# you'd better to write to disk instead of partition
 ```
 
-> Note: img file and /dev/sdc depends on yours
+> Note: img file and `/dev/sdc` depends on yours
+>
+> **write to disk (`/dev/sdc`) instead of partition (`/dev/{sdc1,sdc2}`)**
 
 [tools on linux to write img to sd card](https://github.com/resin-io/etcher/)
 
@@ -68,7 +69,9 @@ sudo dd bs=4M if=/home/${USER}/Downloads/2020-02-13-raspbian-buster-lite.img of=
 ## WiFi Info 
 - append WiFi ssid and password to `/etc/wpa_supplicant/wpa_supplicant.conf`
 
-  ```shel
+  ```shell
+  ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+  update_config=1
   network={
       ssid="wifi-name"
       psk="wifi password"
@@ -80,7 +83,9 @@ sudo dd bs=4M if=/home/${USER}/Downloads/2020-02-13-raspbian-buster-lite.img of=
 - create `ssh` file under partition `/boot`
 
   ```shell
-  touch /boot/ssh
+  sudo mkdir -p /media/rpi-boot
+  sudo mount /dev/sdc1 /media/rpi-boot
+  touch /media/rpi-boot/ssh
   ```
 
 # reference 
