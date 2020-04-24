@@ -139,6 +139,10 @@ ip addr |grep -A2 docker0:  |awk -F" " 'NR>2{print $2}' |cut -d/ -f1
 # > for example: 172.17.0.1
 # 6:use the docker0 ip as proxy ip to set your proxy if anywhere required the proxy.
 curl --socks5 172.17.0.1:1088 https://www.google.com
+
+# 7:other machine use the host ip as a proxy
+curl --socks5 192.168.1.10:1088 https://www.google.com
+curl -x socks://192.168.1.10:10800 www.google.com
 ```
 
 
