@@ -142,7 +142,7 @@ curl --socks5 172.17.0.1:1088 https://www.google.com
 
 # 7:other machine use the host ip as a proxy
 curl --socks5 192.168.1.10:1088 https://www.google.com
-curl -x socks://192.168.1.10:10800 www.google.com
+curl -x socks://192.168.1.10:1088 www.google.com
 ```
 
 
