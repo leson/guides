@@ -1,0 +1,2 @@
+# ansible roles
+> Roles are ways of automatically loading certain vars_files, tasks, and handlers based on a known file structure. Grouping content by roles also allows easy sharing of roles with other users.
