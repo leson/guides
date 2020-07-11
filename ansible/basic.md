@@ -60,9 +60,12 @@ ansible -h
     ```shell
     
     ```
+
 4. ansible-playbook
 
 5. ansible-pull
+
+6. ansible-vault
 
 
 
