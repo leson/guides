@@ -14,8 +14,8 @@
 start=$(date +"%s")
 
 #模拟十个进程
-proc_acct=10
-for (( i=0; i<${proc_acct}; i++ ))
+proc_count=10
+for (( i=0; i<${proc_count}; i++ ))
 do
      {
           sleep 2
@@ -36,4 +36,4 @@ do
 done
 
 end=$( date +"%s")
-echo -e "==> spend:[$((${end}-${start}))] Seconds.\n==> sub-process failed:[${err_count}]\n==> sub-process success:[$((${proc_acct}-${err_count}))]"
+echo -e "==> spend:[$((${end}-${start}))] Seconds.\n==> sub-process failed:[${err_count}]\n==> sub-process success:[$((${proc_count}-${err_count}))]"
