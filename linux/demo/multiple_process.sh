@@ -14,16 +14,26 @@
 start=$(date +"%s")
 
 #模拟十个进程
-for (( i = 0; i < 10; i++ ))
+proc_acct=10
+for (( i=0; i<${proc_acct}; i++ ))
 do
      {
-          echo "success：[${i}]"
           sleep 2
+          if [ "${i}" -gt 5 ];then
+               echo "success：[${i}]"
+          else
+               xxxxxxxxxx 2>&1 ## 模拟一个错误的程序
+          fi
      }& #将{} 中的程序放入后台进程。
 done
 
-#等待上面后台循环进程执行完成。
-wait
+#分别等待上面后台进程执行完成。
+err_count=0
+for pid in $(jobs -p)
+do
+     wait ${pid}
+     [ "x${?}" != "x0" ] && (( err_count++ ))
+done
 
 end=$( date +"%s")
-echo "spend:[$((${end}-${start}))] Seconds."
+echo -e "==> spend:[$((${end}-${start}))] Seconds.\n==> sub-process failed:[${err_count}]\n==> sub-process success:[$((${proc_acct}-${err_count}))]"
