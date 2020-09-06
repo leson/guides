@@ -22,7 +22,9 @@ do
           if [ "${i}" -gt 5 ];then
                echo "success：[${i}]"
           else
-               xxxxxxxxxx 2>&1 ## 模拟一个错误的程序
+               # xxxxxxxxxx 2>&1 ## 模拟一个错误的程序
+               echo "failed: [${i}]"
+               exit ${proc_count}
           fi
      }& #将{} 中的程序放入后台进程。
 done
