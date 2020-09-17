@@ -34,7 +34,7 @@
 
     > if have multiple partitions ,delete the partition one by one 
 
-- create new partition `n`, as primary partition`p`
+- create new partition `n`, as primary partition `p`
 
 - change partition type from `linux` to `FAT32` with `t`
 
