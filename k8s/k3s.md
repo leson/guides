@@ -38,7 +38,20 @@
 
   
 
-  
+# Resource Cleanup
+
+1. node 
+
+   ```bash
+   # drain pod in node firstly before delete node
+   sudo k3s kubectl drain rpi4 --delete-local-data --force --ignore-daemonsets
+   # delete node
+   sudo k3s kubectl delete node rpi4
+   ```
+
+   
+
+
 
 # Q/A
 
@@ -55,9 +68,15 @@
    sudo kill -9 <pid from above queried>
    ```
 
+2. Update node roles 
+
+   ```bash
+   kubectl label node ${node} node-role.kubernetes.io/worker=worker
+   ```
+
    
 
-
+3. Reference: [frequencely Question and Answer](<https://docs.rancher.cn/docs/k3s/faq/_index>)
 
 # Reference Link
 

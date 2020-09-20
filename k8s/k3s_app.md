@@ -1,3 +1,4 @@
+# deployment
 ## nginx-deployment.yml
 
 ```yaml
@@ -38,7 +39,17 @@ sudo k3s kubectl apply -f nginx-deployment.yml
 sudo k3s kubectl get pod -o wide
 
 curl -v <ip>
+```
 
+
+
+# service
+
+## httpd-svc.yml
+
+```yaml
+apiVersion: v1
+kind: service
 
 ```
 
