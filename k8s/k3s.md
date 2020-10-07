@@ -64,7 +64,9 @@
 
 # Q/A
 
-1. Adding debug handlers to kubelet server.
+1. `sudo k3s agent --server https://myserver:6443 --token ${NODE_TOKEN}` failed
+
+Adding debug handlers to kubelet server.
    F0919 20:17:58.385604   18269 server.go:166] listen tcp 0.0.0.0:10250: bind: address already in use
 
    > kubelet default port was 10250 already in use, so we need kill the process firstly 
