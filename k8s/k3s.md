@@ -89,6 +89,21 @@ Adding debug handlers to kubelet server.
 
 3. Reference: [frequencely Question and Answer](<https://docs.rancher.cn/docs/k3s/faq/_index>)
 
+4. how to setup image acceleration repository at china ?
+    > dockerd and containerd Image acceleration configuration locate at difference place.
+    - dockerd:`/etc/docker/daemon.json`
+    - containerd:`/var/lib/rancher/k3s/agent/etc/containerd/config.toml`
+    ```bash
+    containerd config default
+    # go to 
+    cat /var/lib/rancher/k3s/agent/etc/containerd/config.toml
+    cat /etc/containerd/config.toml
+    ```
+
+    Refer to : 
+    - [k3s containerd image acceleration](https://blog.csdn.net/PlatoWG/article/details/107811162)
+    - [k8s containerd image acceleration](https://github.com/containerd/cri/blob/master/docs/registry.md#configure-registry-endpoint)
+
 # Reference Link
 
 [k3s.io](k3s.io)
