@@ -89,7 +89,7 @@ Adding debug handlers to kubelet server.
 
 3. Reference: [frequencely Question and Answer](<https://docs.rancher.cn/docs/k3s/faq/_index>)
 
-4. how to setup image acceleration repository at china ?
+4. How to set image acceleration repository in China ?
     > dockerd and containerd Image acceleration configuration locate at difference place.
     - dockerd:`/etc/docker/daemon.json`
     - containerd:`/var/lib/rancher/k3s/agent/etc/containerd/config.toml`
