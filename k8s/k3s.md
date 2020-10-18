@@ -102,9 +102,9 @@
     sudo k3s crictl info |grep -A 7 registry
     # go to 
     sudo cp /var/lib/rancher/k3s/agent/etc/containerd/config.toml /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl
-    echo "[plugins.cri.registry.mirrors]" >> /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl
-    echo "  [plugins.cri.registry.mirrors.\"docker.io\"]" >> /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl
-    echo "    endpoint = [\"https://xxxxxxxx.mirror.aliyuncs.com\"]" >> /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl
+    sudo sh -c "echo \"[plugins.cri.registry.mirrors]\" >> /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl"
+    sudo sh -c "echo \"  [plugins.cri.registry.mirrors.\\\"docker.io\\\"]\" >> /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl"
+    sudo sh -c "echo \"    endpoint = [\\\"https://xxxxxxxx.mirror.aliyuncs.com\\\"]\" >> /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl"
 
     # xxxxxxxx: your aliyuncs image acceleration link code
     ```
