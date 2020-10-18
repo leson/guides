@@ -38,13 +38,19 @@
 
   
 
-# Resource Cleanup
+# Resource Management
 
 1. node 
 
    ```bash
    # list node
    sudo k3s kubectl get node
+   # cordon node
+   sudo k3s kubectl cordon rpi4
+   # uncordon node
+   sudo k3s kubectl uncordon rpi4
+
+
    # drain pod in node firstly before delete node
    sudo k3s kubectl drain rpi4 --delete-local-data --force --ignore-daemonsets
    # delete node
