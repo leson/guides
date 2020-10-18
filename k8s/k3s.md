@@ -33,7 +33,7 @@
 
     ```bash
     # for example:
-    sudo k3s agent --server https://192.168.1.109:6443 --token K10327841cdae84f056bd3430a4a8ed7745bbee3a827c1247cccf5cf0a87adf04d2::server:0e1c9f296df9d3dae2fa4d24d6276832  --node-name rpi4
+    sudo k3s agent --server https://192.168.3.16:6443 --token K10327841cdae84f056bd3430a4a8ed7745bbee3a827c1247cccf5cf0a87adf04d2::server:0e1c9f296df9d3dae2fa4d24d6276832  --node-name rpi4
     ```
 
   
@@ -60,7 +60,10 @@
    sudo k3s kubectl delete pod <pod name>
    ```
 
-   
+3. remove all unused images
+    ```bash
+    sudo k3s crictl rmi prune
+    ```   
 
 # Q/A
 
@@ -92,17 +95,38 @@
 4. How to set image acceleration repository in China ?
     > dockerd and containerd Image acceleration configuration locate at difference place.
     - dockerd:`/etc/docker/daemon.json`
-    - containerd:`/var/lib/rancher/k3s/agent/etc/containerd/config.toml`
+    - containerd:`/var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl`
+      > Note: must via update containerd configuration file template to update containerd configuration file.
     ```bash
     containerd config default
+    sudo k3s crictl info |grep -A 7 registry
     # go to 
-    cat /var/lib/rancher/k3s/agent/etc/containerd/config.toml
-    cat /etc/containerd/config.toml
+    sudo cp /var/lib/rancher/k3s/agent/etc/containerd/config.toml /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl
+    echo "[plugins.cri.registry.mirrors]" >> /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl
+    echo "  [plugins.cri.registry.mirrors.\"docker.io\"]" >> /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl
+    echo "    endpoint = [\"https://xxxxxxxx.mirror.aliyuncs.com\"]" >> /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl
+
+    # xxxxxxxx: your aliyuncs image acceleration link code
+    ```
+    ```bash
+    [plugins.cri.registry.mirrors]
+      [plugins.cri.registry.mirrors."docker.io"]
+        endpoint = ["https://xxxxxxxx.mirror.aliyuncs.com"]
     ```
 
     Refer to : 
     - [k3s containerd image acceleration](https://blog.csdn.net/PlatoWG/article/details/107811162)
     - [k8s containerd image acceleration](https://github.com/containerd/cri/blob/master/docs/registry.md#configure-registry-endpoint)
+    - [k3s containerd](https://www.cnblogs.com/k3s2019/p/12118489.html)
+
+5. How to set private registry ?
+    > `cat /etc/rancher/k3s/registries.yaml`
+    ```bash
+    mirrors:
+      "http://nexus3.xxx.com:5000":
+        endpoint:
+          - "http://nexus3.xxx.com:5000”
+    ```
 
 # Reference Link
 
