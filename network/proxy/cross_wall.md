@@ -143,6 +143,10 @@ curl --socks5 172.17.0.1:1088 https://www.google.com
 # 7:other machine use the host ip as a proxy
 curl --socks5 192.168.1.10:1088 https://www.google.com
 curl -x socks://192.168.1.10:1088 www.google.com
+
+# 8:apt temporary using
+sudo apt-get -o Acquire::http::proxy="socks5h://192.168.1.10:1088/" update
+sudo apt-get -o Acquire::http::proxy="socks5h://192.168.1.10:1088/" upgrade -y
 ```
 
 
