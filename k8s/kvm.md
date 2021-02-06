@@ -1,3 +1,4 @@
+```bash
 virt-install \
     --name=k8s-master \
     --memory=1024,maxmemory=2048 \
@@ -10,3 +11,5 @@ virt-install \
     --graphics=none \
     --console=pty,target_type=serial  \
     --extra-args="console=tty0 console=ttyS0"
+```
+
