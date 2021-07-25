@@ -53,3 +53,11 @@ kind: service
 
 ```
 
+
+
+
+
+
+
+Reference:
+https://kubernetes.io/zh/docs/concepts/services-networking/connect-applications-service/
