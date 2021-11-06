@@ -154,5 +154,5 @@ sudo apt-get -o Acquire::http::proxy="socks5h://192.168.1.10:1088/" upgrade -y
 > 1. inbound listen : 0.0.0.0 otherwise the proxy will can't read to container inside by docker0 gateway.
 
 ### Refference 
-[v2ray official site](https://www.v2ray.com/)
-[v2fly github site](https://github.com/v2fly)
+- [v2ray official site](https://www.v2ray.com/)
+- [v2fly github site](https://github.com/v2fly)
