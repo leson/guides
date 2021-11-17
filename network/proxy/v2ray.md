@@ -17,7 +17,7 @@ bash <(curl -s -L https://233now.com/v2ray.sh)
 ```
 
 
-## [v2raya](https://v2raya.org/
+## [v2raya](https://v2raya.org/)
 ```bash
 # 不支持全局代理
 docker run -d \
