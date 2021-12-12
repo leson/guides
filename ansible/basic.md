@@ -69,7 +69,7 @@ ansible -h
 
 
 
-## Commonly used modules
+## [Commonly used modules](https://docs.ansible.com/ansible/2.6/user_guide/modules_intro.html) 
 `inventory.cfg` contents as below shown:
 ```yaml 
 [pi]
@@ -94,4 +94,5 @@ ansible pi -m shell -a '/bin/echo hello ansible' -i inventory.cfg -u pi
 ```
 
 7. `raw`
+
 
