@@ -26,6 +26,8 @@ ll -a |grep ansible     # pip install ansible will use this path.
 ```
 ```
 find / -name "ansible" 
+python -m site
+whereis ansible
 
 $> sudo ls -l .pyenv/shims -a |grep ansible
 -rwxr-xr-x  1 leson leson  402 9月   1 00:14 ansible
