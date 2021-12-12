@@ -15,7 +15,7 @@ sudo pip install paramiko PyYAML Jinja2 httplib2 six
 ```
 2. pip \<recommand\>
 ```
-pip install ansible
+python -m pip install ansible
 ```
 3. yum/apt-get ...
 
