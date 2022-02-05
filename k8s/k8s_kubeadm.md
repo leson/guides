@@ -1,76 +1,52 @@
-## add aliyun software source
-```bash
-cat /etc/apt/sources.list.d/kubernetes.list
+# k8s cluster with kubeadm
 
-cat <<EOF > /etc/apt/sources.list.d/kubernetes.list
-deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
-EOF
+## pre-requisites 
+
+1. docker installation
+2. kubeadm/kubelet/kubectl installation
+
+
+## installation
+```bash
+kubeadm init --pod-network-cidr=10.244.0.0/16
+kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 ```
 
-## add aliyun apt key
+
+## Issue Summary
+
+1. kubelet can't startup normally `systemctl status kubelet`
+
+   view log via `journalctl -xefu kubelet` 
+
+2. telnet 10.0.0.233 6443 
+Trying 10.0.0.233...
+telnet: Unable to connect to remote host: No route to host
+
 ```bash
-curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
+iptables -L INPUT --line-numbers
+# find out reject record such as below:
+6    REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
 
-# docker login --username=i.leson@163.com registry.cn-hangzhou.aliyuncs.com
-```
-
-## kubeadm prerequsites 
-```bash
-kubeadm config images list
-
-images=(  # 下面的镜像应该去除"k8s.gcr.io/"的前缀，版本换成上面获取到的版本
-    kube-apiserver:v1.22.0 
-    kube-controller-manager:v1.22.0 
-    kube-scheduler:v1.22.0 
-    kube-proxy:v1.22.0 
-    pause:3.5 
-    etcd:3.5.0-0 
-    coredns:v1.8.4
-)
-
-# coredns need be handle specially
-# registry.aliyuncs.com/google_containers/coredns/coredns:v1.8.4
-
-for imageName in ${images[@]} ; do
-    docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/$imageName
-    docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/$imageName k8s.gcr.io/$imageName
-    #docker rmi registry.cn-hangzhou.aliyuncs.com/google_containers/$imageName
-done
-
-kubeadm config images pull
-
-
-# kubeadm config print init-defaults > kubeadm.config
-
-# docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/coredns/coredns:v1.8.4
-# docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:v1.8.4
-```
-
-## init kubernetes cluster
-```bash
-swapoff -a
-
-kubeadm init \
---pod-network-cidr=172.100.0.0/16 
+# workaround is delete the record
+iptables -D INPUT 6
 
 ```
+refer to [iptables config](https://www.jianshu.com/p/aef8903a88ee)
 
-## kubectl authentication
+3. container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+
 ```bash
-# if root account
-export KUBECONFIG=/etc/kubernetes/admin.conf
-
-# if non-root account
-mkdir -p $HOME/.kube
-cp -i /etc/kubernetes/admin.conf
-$HOME/.kube/config
-chown $(id -u):$(id -g) $HOME/.kube/config
+kubectl describe node <node Id> ## show above error msg.
+# solution
+kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 ```
 
-## verify via kubectl
+4. Flannel (NetworkPlugin cni) error: `/run/flannel/subnet.env`: no such file or directory
+> checking file `/run/flannel/subnet.env` existing or not on master and worker nodes if not create it and paste below content into the file
 ```bash
-kubectl get svc
+FLANNEL_NETWORK=10.244.0.0/16
+FLANNEL_SUBNET=10.244.0.1/24
+FLANNEL_MTU=1450
+FLANNEL_IPMASQ=true
 ```
-
-## Reference
-[Full Steps](https://blog.csdn.net/weixin_30599769/article/details/99213805)
