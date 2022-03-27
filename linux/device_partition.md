@@ -39,30 +39,28 @@ df -h
 
     - Important steps: write the new partition table to SD card with `w`
 
-## format the partition with `mkfs.ext4`
+## format the partition with `mkfs.ext4` 
 
-    ```shell
-    sudo mkfs.ext4 /dev/sdXN
-    ```
+```bash
+sudo mkfs.ext4 /dev/sdb1
+mke2fs 1.44.5 (15-Dec-2018)
+/dev/sdb1 contains a ext4 file system
+        created on Sun Mar 27 18:00:28 2022
+Proceed anyway? (y,N) y
+Creating filesystem with 488378389 4k blocks and 122101760 inodes
+Filesystem UUID: ab673ed4-8ab9-42b9-a0bd-711c78190817
+Superblock backups stored on blocks: 
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+        4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968, 
+        102400000, 214990848
 
-    ```bash
-    $> sudo mkfs.ext4 /dev/sdb1
-    mke2fs 1.44.5 (15-Dec-2018)
-    /dev/sdb1 contains a ext4 file system
-            created on Sun Mar 27 18:00:28 2022
-    Proceed anyway? (y,N) y
-    Creating filesystem with 488378389 4k blocks and 122101760 inodes
-    Filesystem UUID: ab673ed4-8ab9-42b9-a0bd-711c78190817
-    Superblock backups stored on blocks: 
-            32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
-            4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968, 
-            102400000, 214990848
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (262144 blocks): done
+Writing superblocks and filesystem accounting information: done 
+```
 
-    Allocating group tables: done                            
-    Writing inode tables: done                            
-    Creating journal (262144 blocks): done
-    Writing superblocks and filesystem accounting information: done  
-    ```
+
 
 ## mount partitions
 ```shell
