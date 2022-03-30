@@ -11,6 +11,9 @@ docker network ls
 ## create docker self-definition network
 ```bash
 docker network create my-net
+
+## specify network driver
+docker network create -d bridge my-net
 ```
 
 ## using user definition network while creating container
