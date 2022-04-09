@@ -1,15 +1,48 @@
 ## Postgres SQL
 - [docker hub postgres](https://hub.docker.com/_/postgres)
 - [github postgres doc](https://github.com/docker-library/docs/blob/master/postgres/README.md)
+
+### start up instance of postgres
 ```bash
 docker pull postgres
-mkdir -p /home/ubuntu/data/postgres
+mkdir -p /data/docker_data/postgres
 docker run -d \
-    --name oci-postgres \
-    -e POSTGRES_USER=kong \
-    -e POSTGRES_PASSWORD=kong \
-    -e POSTGRES_DB=kong \
+    --name db-postgres \
+    -e POSTGRES_USER=pm \
+    -e POSTGRES_PASSWORD=pm \
+    -e POSTGRES_DB=pm \
     -e PGDATA=/var/lib/postgresql/data/pgdata \
-    -v /home/ubuntu/data/postgres:/var/lib/postgresql/data \
+    -v /data/docker_data/postgres:/var/lib/postgresql/data \
     postgres 
+```
+
+### customize configuration (Optional) 
+```bash
+# get the default config
+docker run -i --rm postgres cat /usr/share/postgresql/postgresql.conf.sample > my-postgres.conf
+
+# run postgres with custom config
+docker run -d --name db-postgres -v "/data/docker_data/postgres/my-postgres.conf":/etc/postgresql/postgresql.conf -e POSTGRES_PASSWORD=mysecretpassword postgres -c 'config_file=/etc/postgresql/postgresql.conf'
+```
+
+### access testing
+```bash
+# login container of postgres
+docker exec -it db-postgres bash
+
+# switch to user : postgres
+su postgres
+
+# login db instance
+psql -U pm -W 
+
+```
+
+### connectivity testing
+```bash
+# pdadmin4 installation
+docker run --name my-pgadmin -p 5050:80 -e "PGADMIN_DEFAULT_EMAIL=freeleson@gmail.com" -e "PGADMIN_DEFAULT_PASSWORD=pm" -d  dpage/pgadmin4
+
+# access via browser
+curl -kv IP:5050
 ```
