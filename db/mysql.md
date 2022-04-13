@@ -1,11 +1,12 @@
 ## Mysql 
-
+[docker official image]()
 ### Installation
 ```bash
 docker pull mysql
 mkdir -p /data/docker_data/mysql
 docker run -d \
     --name db-mysql \
+    -p 0.0.0.0:3306:3306 \
     -e MYSQL_ROOT_PASSWORD=root\
     -e MYSQL_USER=pm \
     -e MYSQL_PASSWORD=pm \
@@ -16,11 +17,14 @@ docker run -d \
 
 ### Connectivity Checking with command cli
 ```bash
+# login container of mysql
+docker exec -it db-mysql bash
+
 # local (not work)
 docker run -it -network some-network --rm mysql mysql -hdb-mysql -upm -p
 
 # connect with remote host (172.17.0.4)
-docker run -it --rm mysql mysql -h172.17.0.4 -upm -p
+docker run -it --rm mysql mysql -h172.17.0.2 -uroot -p
 ```
 
 ### Adminer Installation
@@ -51,3 +55,48 @@ services:
     ports:
       - 8080:8080
 ```
+
+## Q&A
+1. 1045 (28000): Access denied for user 'root'@'172.17.0.1' (using password: NO)
+  ```bash
+  docker exec -it db-mysql bash
+  mysql -uroot -p
+  CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';
+  GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+  ALTER 
+  flush privileges;
+  exit;
+  ###
+  GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+  ```
+
+2. 2003: Can't connect to MySQL server on '172.17.0.1:3306' (111 Connection refused)
+> Expose 0.0.0.0:3306 for your container
+
+
+3. (mysql.connector.errors.NotSupportedError) Authentication plugin 'caching_sha2_password' is not supported
+```bash
+## alter user 
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+flush privileges;
+exit;
+## install myssql connertor with python 
+pipenv install mysql-connector-python
+## splice below sequence for connection string
+auth_plugin='mysql_native_password'
+```
+
+## How to
+1. how to extract default configuration?
+```bash
+docker run --name some-mysql -v /data/docker_data/mysql:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=root -d mysql
+```
+
+2. how to dump mysql databases
+```bash
+docker exec db-mysql sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' > /some/path/on/your/host/all-databases.sql
+
+```
+
+
+
