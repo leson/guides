@@ -87,6 +87,37 @@ pipenv install mysql-connector-python
 mysql+mysqlconnector://admin:admin@172.17.0.1/my_database_name?charset=utf8&auth_plugin=mysql_native_password
 ```
 
+4. mysql table name case sentitive lead to can't find out table name in app
+```bash
+### look up what's the value of lower_case_table_names 
+docker exec -it db-mysql bash
+mysqladmin -u root -p variables | grep lower_case_table_names
+
+```
+  - create mysql conf file `mysql-conf.cnf` on host
+    ```cnf
+    [mysqld]
+    lower_case_table_names = 1
+    ```
+  - remove container data folder `/var/lib/mysql` or `/data/docker_data/mysql` which locate at host
+    ```bash
+    ## stop container
+    docker stop db-mysql
+    ## remove container data folder
+    sudo rm -rf /data/docker_data/mysql
+    ```
+  - copy from host to container
+    ```bash
+    ## copy config file to container
+    docker cp mysql-conf.cnf db-mysql:/etc/mysql/conf.d/
+    ```
+  - start container
+    ```bash
+    docker start db-mysql
+    ```
+
+  - refer to : [mysql8 lower case table names](https://www.thisfaner.com/p/mysql-8-lower_case_table_names/)
+
 ## How to
 1. how to extract default configuration?
 ```bash
