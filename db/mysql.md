@@ -59,15 +59,16 @@ services:
 ## Q&A
 1. 1045 (28000): Access denied for user 'root'@'172.17.0.1' (using password: NO)
   ```bash
+  ### append password on connector string
+  mysql+mysqlconnector://admin:admin@172.17.0.1/my_database_name?charset=utf8
+
+  ### login with root account
   docker exec -it db-mysql bash
   mysql -uroot -p
   CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';
   GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
-  ALTER 
   flush privileges;
   exit;
-  ###
-  GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
   ```
 
 2. 2003: Can't connect to MySQL server on '172.17.0.1:3306' (111 Connection refused)
@@ -77,13 +78,13 @@ services:
 3. (mysql.connector.errors.NotSupportedError) Authentication plugin 'caching_sha2_password' is not supported
 ```bash
 ## alter user 
-ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+ALTER USER 'admin'@'%' IDENTIFIED WITH mysql_native_password BY 'admin';
 flush privileges;
 exit;
 ## install myssql connertor with python 
 pipenv install mysql-connector-python
 ## splice below sequence for connection string
-auth_plugin='mysql_native_password'
+mysql+mysqlconnector://admin:admin@172.17.0.1/my_database_name?charset=utf8&auth_plugin=mysql_native_password
 ```
 
 ## How to
