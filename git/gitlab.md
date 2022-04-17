@@ -10,7 +10,12 @@ sudo docker run --detach \
     --volume ~/gitlab/data:/var/opt/gitlab \
     gitlab/gitlab-ce:latest
 ```
-
+### 重置管理员密码
+- `docker exec -it gitlab bash`
+- `gitlab-rails console`
+- `user = User.where(username: ‘root’).first`
+- `user.password = ‘password’`
+- `user.save!`
 
 
 ### Reference Link
