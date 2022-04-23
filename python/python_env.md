@@ -1,5 +1,7 @@
 # Python Environment Setup
 
+Prefer to using pipenv in one go
+
 ## pyenv
 
 - pyenv 原理
