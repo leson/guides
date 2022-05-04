@@ -3,8 +3,9 @@
 ## install pipenv
 ```bash
 sudo apt install python3
-
-pip install --user pipenv
+pip install  pipenv --user 
+## or
+python3 -m pip install pipenv --index-url=https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com --user
 
 echo -e "export PIPENV_VENV_IN_PROJECT=1" >> ~/.bashrc
 echo -e "export PIPENV_IGNORE_VIRTUALENVS=1" >> ~/.bashrc
