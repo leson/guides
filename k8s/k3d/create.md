@@ -27,7 +27,8 @@ curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/rec
 curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/alternative.yaml -o alternative.yaml
 curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/admin-rbac.yaml -o admin-rbac.yaml
 
-kubectl apply -f alternative.yaml
+kubectl apply -f recommended.yaml
+# kubectl apply -f alternative.yaml
 kubectl apply -f admin-rbac.yaml
 
 # kubectl delete -f admin-rbac.yaml
