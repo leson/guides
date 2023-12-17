@@ -3,13 +3,13 @@ kind: ServiceAccount
 metadata:
   labels:
     k8s-app: kubernetes-dashboard
-  name: dashboard-admin
+  name: admin-user
   namespace: kubernetes-dashboard
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: dashboard-admin-bind-cluster-role
+  name: admin-user
   labels:
     k8s-app: kubernetes-dashboard
 roleRef:
@@ -18,5 +18,15 @@ roleRef:
   name: cluster-admin
 subjects:
 - kind: ServiceAccount
-  name: dashboard-admin
+  name: admin-user
   namespace: kubernetes-dashboard
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+  annotations:
+    kubernetes.io/service-account.name: "admin-user"   
+type: kubernetes.io/service-account-token  

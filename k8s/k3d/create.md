@@ -29,7 +29,7 @@ curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/adm
 
 kubectl apply -f recommended.yaml
 # kubectl apply -f alternative.yaml
-kubectl apply -f admin-rbac.yaml
+
 
 # kubectl delete -f admin-rbac.yaml
 ```
@@ -62,9 +62,13 @@ kubectl create -f alternative.yaml
 
 ```
 
-## obtain token of admin-user
+## obtain token of service account
+| refer to https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 ```bash
-kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep dashboard-admin | awk '{print $1}')
+# kubectl -n kubernetes-dashboard create token admin-user
+kubectl apply -f admin-rbac.yaml 
+
+kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.token"} | base64 -d
 
 ```
 
