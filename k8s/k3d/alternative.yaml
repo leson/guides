@@ -37,9 +37,11 @@ metadata:
   name: kubernetes-dashboard
   namespace: kubernetes-dashboard
 spec:
+  type: NodePort #增加
   ports:
     - port: 80
       targetPort: 9090
+      nodePort: 30000 #增加
   selector:
     k8s-app: kubernetes-dashboard
 
@@ -226,11 +228,9 @@ metadata:
   name: dashboard-metrics-scraper
   namespace: kubernetes-dashboard
 spec:
-  type: NodePort #增加
   ports:
     - port: 8000
       targetPort: 8000
-      nodePort: 30000 #增加
   selector:
     k8s-app: dashboard-metrics-scraper
 

@@ -24,4 +24,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/a
 ## or 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/alternative.yaml
 
+## self modified version base one above 
+curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/alternative.yaml
+
 ```
