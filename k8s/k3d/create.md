@@ -30,13 +30,41 @@ kubectl apply -f alternative.yaml
 kubectl apply -f admin-rbac.yaml
 ```
 
+## create dashboard certs
+```bash
+#************   创建证书   ************  
+mkdir dashboard-certs
+cd dashboard-certs/
+
+# 创建命名空间
+kubectl create namespace kubernetes-dashboard
+
+# 创建key文件
+openssl genrsa -out dashboard.key 2048
+
+# 证书请求
+openssl req -days 36000 -new -out dashboard.csr -key dashboard.key -subj '/CN=dashboard-cert'
+
+# 自签证书
+openssl x509 -req -in dashboard.csr -signkey dashboard.key -out dashboard.crt
+
+# 创建kubernetes-dashboard-certs对象
+kubectl create secret generic kubernetes-dashboard-certs --from-file=dashboard.key --from-file=dashboard.crt -n kubernetes-dashboard
+
+# 安装kubernetes-dashboard
+cd ../
+kubectl create -f alternative.yaml
+# 注: 这是因为我们在创建证书时，已经创建了kubernetes-dashboard命名空间，如果有命名空间已存在的报错，直接忽略即可。
+
+```
+
 ## obtain token of admin-user
 ```bash
-kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep dashboard-admin | awk '{print $1}')
 
 ```
 
 ## testing dashboard connectivity 
 ```bash
-https://localhost:30000/#/login
+curl -kv http://localhost:30000/#/login
 ```
