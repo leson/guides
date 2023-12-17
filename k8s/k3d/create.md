@@ -15,8 +15,6 @@ graph LR
   E --> F[Curl it via localhost]
 ```
 
-
-
 ## install kubernetes dashboard
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
@@ -26,9 +24,10 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/a
 
 ## self modified version base one above 
 curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/alternative.yaml
+curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/admin-rbac.yaml
 
 kubectl apply -f alternative.yaml
-kubectl apply -f dashborad-admin-rabc.yaml
+kubectl apply -f admin-rbac.yaml
 ```
 
 ## obtain token of admin-user
