@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  annotations:
+    ingress.kubernetes.io/protocol: "https"
+  namespace: kubernetes-dashboard
+spec:
+  tls:
+  - hosts: 
+    - leson.com
+    secretName: kubernetes-dashboard-certs
+  rules:
+  - host: leson.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: kubernetes-dashboard
+            port:
+              number: 80

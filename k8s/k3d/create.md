@@ -25,12 +25,12 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/a
 ## self modified version base one above 
 curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/recommended.yaml -o recommended.yaml
 curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/alternative.yaml -o alternative.yaml
-curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/admin-rbac.yaml -o admin-rbac.yaml
+
 
 kubectl apply -f recommended.yaml
 # kubectl apply -f alternative.yaml
 
-
+# kubectl delete -f alternative.yaml
 # kubectl delete -f admin-rbac.yaml
 ```
 
@@ -47,13 +47,14 @@ kubectl create namespace kubernetes-dashboard
 openssl genrsa -out dashboard.key 2048
 
 # 证书请求
-openssl req -days 36000 -new -out dashboard.csr -key dashboard.key -subj '/CN=dashboard-cert'
+openssl req -days 36000 -new -out dashboard.csr -key dashboard.key -subj '/CN=leson.com'
 
 # 自签证书
 openssl x509 -req -in dashboard.csr -signkey dashboard.key -out dashboard.crt
 
 # 创建kubernetes-dashboard-certs对象
 kubectl create secret generic kubernetes-dashboard-certs --from-file=dashboard.key --from-file=dashboard.crt -n kubernetes-dashboard
+## kubectl delete secret kubernetes-dashboard-certs -n kubernetes-dashboard
 
 # 安装kubernetes-dashboard
 cd ../
@@ -66,6 +67,7 @@ kubectl create -f alternative.yaml
 | refer to https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 ```bash
 # kubectl -n kubernetes-dashboard create token admin-user
+curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/admin-rbac.yaml -o admin-rbac.yaml
 kubectl apply -f admin-rbac.yaml 
 
 kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.token"} | base64 -d
@@ -74,5 +76,10 @@ kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.token"
 
 ## testing dashboard connectivity 
 ```bash
+nohup kubectl proxy &
+ssh -L localhost:8001:localhost:8001 -NT ubuntu@140.83.84.112
+http://140.83.84.112:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+
+
 curl -kv http://localhost:30000/#/login
 ```
