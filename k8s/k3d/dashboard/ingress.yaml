@@ -11,8 +11,7 @@ spec:
     - leson.com
     secretName: kubernetes-dashboard-certs
   rules:
-  - host: leson.com
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix

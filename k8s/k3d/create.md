@@ -74,12 +74,21 @@ kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.token"
 
 ```
 
+## apply ingress
+```bash
+curl https://raw.githubusercontent.com/leson/guides/master/k8s/k3d/dashboard/ingress.yaml -o ingress.yaml
+
+kubectl apply -f ingress.yaml
+# kubectl delete -f ingress.yaml
+```
+
 ## testing dashboard connectivity 
 ```bash
-nohup kubectl proxy &
-ssh -L localhost:8001:localhost:8001 -NT ubuntu@140.83.84.112
-http://140.83.84.112:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+# nohup kubectl proxy &
+# ssh -L localhost:8001:localhost:8001 -NT user@YOUR_IP
+# http://YOUR_IP:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 
 
 curl -kv http://localhost:30000/#/login
+
 ```
