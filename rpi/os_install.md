@@ -66,6 +66,11 @@ sudo dd bs=4M if=/home/${USER}/Downloads/2020-02-13-raspbian-buster-lite.img of=
 [tools on linux to write img to sd card](https://github.com/resin-io/etcher/)
 
 # OS Configuration
+## raspi-config `recommand`
+```bash
+sudo raspi-config
+```
+
 ## WiFi Info 
 - append WiFi ssid and password to `/etc/wpa_supplicant/wpa_supplicant.conf`
 
