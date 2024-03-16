@@ -85,10 +85,11 @@ kubectl apply -f ingress.yaml
 ## testing dashboard connectivity 
 ```bash
 # nohup kubectl proxy &
-# ssh -L localhost:8001:localhost:8001 -NT user@YOUR_IP
-# http://YOUR_IP:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+#使用SSH命令建立连接。基本命令格式如下：ssh -L [本地端口]:localhost:8001 [用户名]@[K3s IP]。例如，如果你的用户名是root，K3s IP地址是10.0.0.1，那么命令就是ssh -L 8001:localhost:8001 root@10.0.0.1
+# ssh -L 8001:localhost:8001 -NT user@remote_IP
+# http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 
 
-curl -kv http://localhost:30000/#/login
+curl -kv http://localhost:8001/#/login
 
 ```

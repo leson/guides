@@ -16,6 +16,21 @@ docker run -d \
     postgres 
 ```
 
+```bash
+docker pull postgres:alpine
+mkdir -p /home/leson/data
+docker run -d \
+    --name db-postgres \
+    -e POSTGRES_USER=river \
+    -e POSTGRES_PASSWORD=river \
+    -e POSTGRES_DB=river \
+    -e PGDATA=/var/lib/postgresql/data/pgdata \
+    -v /home/leson/data:/var/lib/postgresql/data \
+    postgres:alpine 
+
+# river migrate-up --database-url "postgres://172.17.0.2:5432/river"
+```
+
 ### customize configuration (Optional) 
 ```bash
 # get the default config
@@ -45,4 +60,9 @@ docker run --name my-pgadmin -p 5050:80 -e "PGADMIN_DEFAULT_EMAIL=freeleson@gmai
 
 # access via browser
 curl -kv IP:5050
+
+## adminer container which using for manage DB in browser
+docker run --name adminer -p 8080:8080 -e ADMINER_DEFAULT_SERVER=db-postgres adminer
+
+## browser access via url `localhost:8080`; and server please input: `172.17.0.2` which using docker container ip address
 ```
