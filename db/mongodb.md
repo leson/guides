@@ -38,7 +38,7 @@ services:
 
 [docker compose installation](https://docs.docker.com/compose/install/linux/) 
 ```bash
-docker compose -f mongo-express.yaml mongo 
+docker compose -f mongo-express.yaml up 
 
 curl 0.0.0.0:8081
 ```
