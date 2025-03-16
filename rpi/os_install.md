@@ -55,7 +55,7 @@
 ```bash
 # for example to install raspbian buster lite as below
 
-sudo dd bs=4M if=/home/${USER}/Downloads/2020-02-13-raspbian-buster-lite.img of=/dev/sdc && sync
+sudo dd bs=4M if=/home/${USER}/Downloads/2020-02-13-raspbian-buster-lite.img of=/dev/sdc status=progress
 
 ```
 
